@@ -1,0 +1,24 @@
+{% load staticfiles i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+
+</head>
+<body>
+    Welcome {{name}}
+    <p></p>
+    <div>
+        <form method="post" id="upload_form" encType="multipart/form-data">
+            {% csrf_token %}
+            <label for="upload_form">Upload Files</label>
+            <input type="file" name="{{ upload_form.file_field.html_name }}" id="upload_form" />
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+<script type="text/javascript" src="{% static 'scripts/graph.js' %}"></script>
+</html>

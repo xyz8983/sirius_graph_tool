@@ -1,0 +1,11 @@
+__pycache__/
+venv/
+.env
+.idea
+node_modules
+
+.json
+.png
+.jpg
+.jpeg
+
