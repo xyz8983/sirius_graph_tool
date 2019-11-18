@@ -14,10 +14,12 @@
         <form method="post" id="upload_form" encType="multipart/form-data">
             {% csrf_token %}
             <label for="upload_form">Upload Files</label>
-            <input type="file" name="{{ upload_form.file_field.html_name }}" id="upload_form" />
+            <input type="file" name="{{ upload_form.file_field.html_name }}" id="upload_form" multiple/>
             <button type="submit">Submit</button>
         </form>
     </div>
+{{ json_file_url }}
+{{ form_error }}
 </body>
 
 <script type="text/javascript" src="{% static 'scripts/graph.js' %}"></script>
