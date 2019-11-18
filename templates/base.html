@@ -5,20 +5,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
+    <link href="{% static 'styles/web.css' %}" rel="stylesheet">
+    <link href="{% static 'styles/bootstrap.css' %}" rel="stylesheet">
 
 </head>
-<body>
-    Welcome {{name}}
-    <p></p>
+<body class="base-bg">
+    <nav class="navbar navbar-expand-lg">
+        <span class="navbar-brand eat-nav-title">Exploratory Analysis Tool</span>
+        <div class="col-4 align-self-end" >
+            <form class="form-inline " method="post" id="upload_form" encType="multipart/form-data">
+                {% csrf_token %}
+                <input class="file-input-box" type="file" name="{{ upload_form.file_field.html_name }}" id="upload_form" multiple/>
+                <label class="file-input-label" for="upload_form">Upload Dataset</label>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </nav>
+
     <div>
-        <form method="post" id="upload_form" encType="multipart/form-data">
-            {% csrf_token %}
-            <label for="upload_form">Upload Files</label>
-            <input type="file" name="{{ upload_form.file_field.html_name }}" id="upload_form" multiple/>
-            <button type="submit">Submit</button>
-        </form>
+{#        <form method="post" id="upload_form" encType="multipart/form-data">#}
+{#            {% csrf_token %}#}
+{#            <label for="upload_form">Upload Files</label>#}
+{#            <input type="file" name="{{ upload_form.file_field.html_name }}" id="upload_form" multiple/>#}
+{#            <button type="submit">Submit</button>#}
+{#        </form>#}
     </div>
-{{ json_file_url }}
+<input hidden value="{{ json_file_url }}" id="json-url">
 {{ form_error }}
 </body>
 

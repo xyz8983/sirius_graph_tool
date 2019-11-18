@@ -1,5 +1,4 @@
 from django import forms
-from .models import UploadFileField
 
 class UploadJSONandImage(forms.Form):
     file_field = forms.FileField(
@@ -13,7 +12,6 @@ class UploadJSONandImage(forms.Form):
         for f in files_list:
             extension = cls.get_extension(f.name)
             all_passed = all_passed and (extension in ['json', 'png'])
-        print('all_passed', all_passed)
         return all_passed
 
     @staticmethod
@@ -25,8 +23,3 @@ class UploadJSONandImage(forms.Form):
         else:
             return file_name[file_name.rfind('.') + 1:].lower()
 
-
-class UploadJSONImageForm(forms.ModelForm):
-    class Meta:
-        model = UploadFileField
-        fields = ('file_field',)
