@@ -12,7 +12,6 @@ class HomePageView(TemplateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super(HomePageView, self).get_context_data(**kwargs)
-        context['name'] = 'User'
         form = UploadJSONandImage()
         context['upload_form'] = form
 
@@ -25,6 +24,7 @@ class HomePageView(TemplateView):
         if os.path.exists('static/upload_files/'):
             shutil.rmtree('static/upload_files/')
         if form.is_valid() and UploadJSONandImage.validate_extension(files.getlist('file_field')):
+            # form cleaned data only check one file instead a list of files, so add extra validation process above
             for file in files.getlist('file_field'):
                 upload_file_instance = UploadFileField(file_field=file)
                 upload_file_instance.save()
