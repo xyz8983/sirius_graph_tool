@@ -94,7 +94,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importStar = (this && this.__importStar) || function (mod) {\n    if (mod && mod.__esModule) return mod;\n    var result = {};\n    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];\n    result[\"default\"] = mod;\n    return result;\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar d3 = __importStar(__webpack_require__(/*! d3 */ \"./node_modules/d3/build/d3.js\"));\n(function () {\n    console.log('hey is it still alive');\n    d3.select(\"p\").data(['hey', 'you']).enter().append('li').text(function (d) { return \"hello\" + d; });\n}());\n\n\n//# sourceURL=webpack:///./client/ts/index.ts?");
+eval("\nvar __importStar = (this && this.__importStar) || function (mod) {\n    if (mod && mod.__esModule) return mod;\n    var result = {};\n    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];\n    result[\"default\"] = mod;\n    return result;\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar d3 = __importStar(__webpack_require__(/*! d3 */ \"./node_modules/d3/build/d3.js\"));\n(function () {\n    console.log('hey is it still alive');\n    // d3.select(\"p\").data(['hey','you']).enter().append('li').text(function(d){return \"hello\"+d;});\n    var jsonUrl = document.getElementById('json-url');\n    if (jsonUrl && jsonUrl.value) {\n        console.log(jsonUrl);\n        console.log('value', jsonUrl.value);\n        d3.json(jsonUrl.value, function (error, data) {\n            console.log(data);\n        });\n    }\n}());\n\n\n//# sourceURL=webpack:///./client/ts/index.ts?");
 
 /***/ }),
 

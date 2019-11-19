@@ -1,0 +1,18 @@
+.base-bg {
+    background-image: url("../images/home-background.svg");
+}
+span.navbar-brand.eat-nav-title{
+    color: white;
+}
+.file-input-box{
+    width: 0.01px;
+	height: 0.01px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.file-input-label{
+    color: white;
+    cursor: pointer;
+}
