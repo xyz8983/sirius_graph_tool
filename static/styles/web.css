@@ -2,6 +2,11 @@
     background-image: url("../images/home-background.svg");
     background-color: #0F1847;
 }
+.navbar.navbar-expand-lg.eat-bar{
+    background-color: #102136;
+    border-bottom-color: #3f62b8;
+    border-bottom-width: 1px;
+}
 span.navbar-brand.eat-nav-title{
     color: white;
 }
