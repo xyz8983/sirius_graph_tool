@@ -1,5 +1,6 @@
 .base-bg {
     background-image: url("../images/home-background.svg");
+    background-color: #0F1847;
 }
 span.navbar-brand.eat-nav-title{
     color: white;

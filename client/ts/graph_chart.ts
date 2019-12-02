@@ -53,5 +53,6 @@ export function generateGraghChart(jsonUrl){
         }
     });
     // todo: get pure blue background of the image or just the color => #102136
+    // todo: draw to the canvas to see if performance is different?
 
 }
