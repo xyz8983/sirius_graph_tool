@@ -86,6 +86,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./client/ts/graph_chart.ts":
+/*!**********************************!*\
+  !*** ./client/ts/graph_chart.ts ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __importStar = (this && this.__importStar) || function (mod) {\n    if (mod && mod.__esModule) return mod;\n    var result = {};\n    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];\n    result[\"default\"] = mod;\n    return result;\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar d3 = __importStar(__webpack_require__(/*! d3 */ \"./node_modules/d3/build/d3.js\"));\nfunction generateGraghChart(jsonUrl) {\n    console.log('value', jsonUrl.value);\n    var svg = d3.select('svg'), width = +svg.attr('width'), height = +svg.attr('height'), nodeRadius = 10;\n    var simulation = d3.forceSimulation()\n        .force('charge', d3.forceManyBody())\n        .force('center', d3.forceCenter(width / 2, height / 2))\n        .force('collide', d3.forceCollide().radius(nodeRadius * 1.5))\n        .force('link', d3.forceLink().distance(90)); // distance sets the length of each link\n    d3.json(jsonUrl.value, function (error, data) {\n        console.log(data);\n        var links = svg.append(\"g\")\n            .selectAll(\"line\")\n            .data(data.links)\n            .enter()\n            .append(\"line\")\n            .attr(\"stroke\", \"#FFFFFF\")\n            .attr(\"stroke-width\", 1);\n        var nodes = svg.append(\"g\")\n            .selectAll(\"circle\")\n            .data(data.nodes)\n            .enter()\n            .append(\"circle\")\n            .attr(\"r\", nodeRadius)\n            // .style(\"opacity\", \"0.5\");\n            .style('fill', \"#FFFFFF\");\n        simulation.nodes(data.nodes)\n            .on(\"tick\", ticked);\n        simulation.force(\"link\").links(data.links);\n        function ticked() {\n            links\n                .attr(\"x1\", function (d) { return d.source.x; })\n                .attr(\"y1\", function (d) { return d.source.y; })\n                .attr(\"x2\", function (d) { return d.target.x; })\n                .attr(\"y2\", function (d) { return d.target.y; });\n            nodes\n                .attr(\"cx\", function (d) { return d.x; })\n                .attr(\"cy\", function (d) { return d.y; })\n                .attr(\"stroke\", \"#FFFFFF\")\n                .attr(\"stroke-width\", 1);\n        }\n    });\n    // todo: get pure blue background of the image or just the color => #102136\n}\nexports.generateGraghChart = generateGraghChart;\n\n\n//# sourceURL=webpack:///./client/ts/graph_chart.ts?");
+
+/***/ }),
+
 /***/ "./client/ts/index.ts":
 /*!****************************!*\
   !*** ./client/ts/index.ts ***!
@@ -94,7 +106,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importStar = (this && this.__importStar) || function (mod) {\n    if (mod && mod.__esModule) return mod;\n    var result = {};\n    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];\n    result[\"default\"] = mod;\n    return result;\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar d3 = __importStar(__webpack_require__(/*! d3 */ \"./node_modules/d3/build/d3.js\"));\n(function () {\n    console.log('hey is it still alive');\n    // d3.select(\"p\").data(['hey','you']).enter().append('li').text(function(d){return \"hello\"+d;});\n    var jsonUrl = document.getElementById('json-url');\n    if (jsonUrl && jsonUrl.value) {\n        console.log(jsonUrl);\n        console.log('value', jsonUrl.value);\n        d3.json(jsonUrl.value, function (error, data) {\n            console.log(data);\n        });\n    }\n}());\n\n\n//# sourceURL=webpack:///./client/ts/index.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar graph_chart_1 = __webpack_require__(/*! ./graph_chart */ \"./client/ts/graph_chart.ts\");\n(function () {\n    console.log('hey is it still alive');\n    var jsonUrl = document.getElementById('json-url');\n    if (jsonUrl && jsonUrl.value) {\n        graph_chart_1.generateGraghChart(jsonUrl);\n    }\n}());\n\n\n//# sourceURL=webpack:///./client/ts/index.ts?");
 
 /***/ }),
 
