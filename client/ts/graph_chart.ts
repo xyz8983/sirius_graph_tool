@@ -1,6 +1,5 @@
 import * as d3 from "d3";
 
-// todo: future=>accept configuration parameters, such as link length, collision radius, collision strength from filters
 export function generateGraghChart(jsonUrl){
 
     // let svg = d3.select('svg'),
@@ -12,7 +11,7 @@ export function generateGraghChart(jsonUrl){
         height = +svg.attr("height"),
         width = +svg.attr("width"),
         nodeRadius = 8;
-    // todo: know how computation expensive to use force
+
     let simulation = d3.forceSimulation()
         .force('charge', d3.forceManyBody())
         .force('center', d3.forceCenter(width/2, height/2))
@@ -59,7 +58,7 @@ export function generateGraghChart(jsonUrl){
         }
     });
 
-    // todo: draw to the canvas to see if performance is different?
+
 
 
 }
