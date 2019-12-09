@@ -1,18 +1,23 @@
 import * as d3 from "d3";
 
+// todo: accept configuration parameters, such as link length, collision radius, collision strength from filters
 export function generateGraghChart(jsonUrl){
     console.log('value', jsonUrl.value);
+    // let width = window.innerWidth,
+    //     height = window.innerHeight,
+    //     nodeRadius = 10;
+    // let svg = d3.select('svg').attr("width", width).attr("height", height);
     let svg = d3.select('svg'),
-        width = +svg.attr('width'),
-        height = +svg.attr('height'),
+        height = +svg.attr("height"),
+        width = +svg.attr("width"),
         nodeRadius = 10;
-    // todo: enable drag node?
     // todo: know how computation expensive to use force
     let simulation = d3.forceSimulation()
         .force('charge', d3.forceManyBody())
         .force('center', d3.forceCenter(width/2, height/2))
-        .force('collide', d3.forceCollide().radius(nodeRadius*1.5))
-        .force('link', d3.forceLink().distance(90)); // distance sets the length of each link
+        // .force('collide', d3.forceCollide().radius(nodeRadius*1.2))
+        .force('collide', d3.forceCollide())
+        .force('link', d3.forceLink().distance(80)); // distance sets the length of each link
 
     d3.json(jsonUrl.value, function(error, data){
         console.log(data);
@@ -54,5 +59,6 @@ export function generateGraghChart(jsonUrl){
     });
     // todo: get pure blue background of the image or just the color => #102136
     // todo: draw to the canvas to see if performance is different?
+    // todo: font awesome font url has error in compiled css file
 
 }
