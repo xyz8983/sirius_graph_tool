@@ -1,16 +1,17 @@
 import * as d3 from "d3";
 
-// todo: accept configuration parameters, such as link length, collision radius, collision strength from filters
+// todo: future=>accept configuration parameters, such as link length, collision radius, collision strength from filters
 export function generateGraghChart(jsonUrl){
-    console.log('value', jsonUrl.value);
-    // let width = window.innerWidth,
-    //     height = window.innerHeight,
+
+    // let svg = d3.select('svg'),
+    //     width = document.getElementById("drawing-section").clientWidth,
+    //     height = document.getElementById("drawing-section").clientHeight,
     //     nodeRadius = 10;
-    // let svg = d3.select('svg').attr("width", width).attr("height", height);
+    // svg.attr("width", width).attr("height", height);
     let svg = d3.select('svg'),
         height = +svg.attr("height"),
         width = +svg.attr("width"),
-        nodeRadius = 10;
+        nodeRadius = 8;
     // todo: know how computation expensive to use force
     let simulation = d3.forceSimulation()
         .force('charge', d3.forceManyBody())
@@ -57,8 +58,8 @@ export function generateGraghChart(jsonUrl){
 
         }
     });
-    // todo: get pure blue background of the image or just the color => #102136
+
     // todo: draw to the canvas to see if performance is different?
-    // todo: font awesome font url has error in compiled css file
+
 
 }

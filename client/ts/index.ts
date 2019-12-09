@@ -29,9 +29,4 @@ import {generateGraghChart} from "./graph_chart";
       generateGraghChart(jsonUrl);
    }
 
-   let wHeight = window.innerHeight,
-       wWidth = window.innerWidth;
-   console.log('window height', wHeight, 'window width', wWidth);
-
-
 }());

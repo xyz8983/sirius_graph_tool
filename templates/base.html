@@ -7,11 +7,12 @@
     <title>Home Page</title>
     <link href="{% static 'styles/web.css' %}" rel="stylesheet">
     <link href="{% static 'styles/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'styles/font-awesome.css' %}" rel="stylesheet">
 
 </head>
 <body class="base-bg">
     <nav class="navbar navbar-expand-lg eat-bar">
-        <span class="navbar-brand eat-nav-title">SIRIUS: Exploratory Analysis Tool</span>
+        <span class="navbar-brand eat-nav-title">SIRIUS <span class="small">Exploratory Analysis Tool</span></span>
         <span class="navbar-brand upload-link" id="upload-link">Upload Dataset</span>
     </nav>
     <div id="drawing-section" class="container">
@@ -23,10 +24,10 @@
             <div class="right-bar-content">
                 <h2>Make Connections</h2>
                 <p>
-                    humans before us mapped out the constellations to tell stories. We'are looking to help researchers map
+                    Humans before us mapped out the constellations to tell stories. We'are looking to help researchers map
                     out connections in any data set so they can reveal stories from them.
                 </p>
-                <p>click on any edge to explore connections.</p>
+                <p>Click on any edge to explore connections.</p>
                 <form class="upload-form" method="post" id="upload_form" encType="multipart/form-data">
                     {% csrf_token %}
                     <input class="file-input-box" type="file" name="{{ upload_form.file_field.html_name }}" id="upload_box" multiple/>
