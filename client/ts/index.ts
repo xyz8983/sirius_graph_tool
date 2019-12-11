@@ -12,7 +12,12 @@ import {display_chart} from "./display_difference_chart";
 
    // display the right panel
    uploadLink.addEventListener("click", function(){
+      let rightContentBar = <HTMLElement>document.querySelector(".right-bar-content"),
+          rightImageBar = <HTMLElement>document.querySelector(".right-bar-image");
       rightBar.hidden = false;
+      rightContentBar.hidden = false;
+      rightImageBar.hidden = true;
+
    });
    // close the right panel
    closeBtn.addEventListener("click", function(evt){
