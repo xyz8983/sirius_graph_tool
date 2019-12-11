@@ -1,4 +1,5 @@
 import * as d3 from "d3";
+import {Color} from "./styles";
 
 export function generateGraghChart(jsonUrl){
 
@@ -20,13 +21,12 @@ export function generateGraghChart(jsonUrl){
         .force('link', d3.forceLink().distance(80)); // distance sets the length of each link
 
     d3.json(jsonUrl.value, function(error, data){
-        console.log(data);
         let links = svg.append("g")
             .selectAll("line")
             .data(data.links)
             .enter()
             .append("line")
-            .attr("stroke", "#FFFFFF")
+            .attr("stroke", Color.White)
             .attr("stroke-width", 1);
 
         let nodes = svg.append("g")
@@ -36,7 +36,7 @@ export function generateGraghChart(jsonUrl){
                 .append("circle")
                 .attr("r", nodeRadius)
                 // .style("opacity", "0.5");
-                .style('fill', "#FFFFFF");
+                .style('fill',  Color.White);
 
         simulation.nodes(data.nodes)
             .on("tick", ticked);
@@ -51,7 +51,7 @@ export function generateGraghChart(jsonUrl){
             nodes
                 .attr("cx", function(d) { return d.x; })
                 .attr("cy", function(d) { return d.y; })
-                .attr("stroke", "#FFFFFF")
+                .attr("stroke",  Color.White)
                 .attr("stroke-width", 1);
 
 
