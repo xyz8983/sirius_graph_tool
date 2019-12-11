@@ -86,6 +86,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./client/ts/display_difference_chart.ts":
+/*!***********************************************!*\
+  !*** ./client/ts/display_difference_chart.ts ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nfunction display_chart() {\n    // add event listener to the document, ensure the listener can be created before the target element, lke line, is created\n    document.addEventListener(\"click\", function (e) {\n        console.log(\"here clicked?\");\n        console.log(e);\n        var clickedElement = e.target;\n        console.log(\"line or not\", clickedElement.nodeName == 'line');\n        if (clickedElement.nodeName == 'line') {\n            var sourceName = clickedElement.__data__.source.source, sourceIndex = clickedElement.__data__.source.index, targetName = clickedElement.__data__.target.source, targetIndex = clickedElement.__data__.target.index;\n            console.log(\"here?\", clickedElement.__data__);\n            console.log(\"sourceName\", sourceName);\n            console.log(\"sourceIndex\", sourceIndex);\n            console.log(\"targetName\", targetName);\n            console.log(\"targetIndex\", targetIndex);\n        }\n    });\n}\nexports.display_chart = display_chart;\n\n\n//# sourceURL=webpack:///./client/ts/display_difference_chart.ts?");
+
+/***/ }),
+
 /***/ "./client/ts/graph_chart.ts":
 /*!**********************************!*\
   !*** ./client/ts/graph_chart.ts ***!
@@ -106,7 +118,7 @@ eval("\nvar __importStar = (this && this.__importStar) || function (mod) {\n    
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar graph_chart_1 = __webpack_require__(/*! ./graph_chart */ \"./client/ts/graph_chart.ts\");\n(function () {\n    var jsonUrl = document.getElementById('json-url'), body = document.getElementsByTagName(\"body\")[0], closeBtn = document.getElementsByClassName(\"close-btn\")[0], rightBar = document.getElementById(\"right-bar\"), uploadLink = document.getElementById(\"upload-link\");\n    // display the right panel\n    uploadLink.addEventListener(\"click\", function () {\n        rightBar.hidden = false;\n    });\n    // close the right panel\n    closeBtn.addEventListener(\"click\", function (evt) {\n        rightBar.hidden = true;\n    });\n    // draw graph network\n    if (jsonUrl && jsonUrl.value) {\n        // remove background image, replace with background color\n        body.style.backgroundImage = 'None';\n        // hide right panel by default when graph chart is generated\n        if (rightBar) {\n            rightBar.hidden = true;\n        }\n        graph_chart_1.generateGraghChart(jsonUrl);\n    }\n}());\n\n\n//# sourceURL=webpack:///./client/ts/index.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar graph_chart_1 = __webpack_require__(/*! ./graph_chart */ \"./client/ts/graph_chart.ts\");\nvar display_difference_chart_1 = __webpack_require__(/*! ./display_difference_chart */ \"./client/ts/display_difference_chart.ts\");\n(function () {\n    var jsonUrl = document.getElementById('json-url'), body = document.getElementsByTagName(\"body\")[0], closeBtn = document.getElementsByClassName(\"close-btn\")[0], rightBar = document.getElementById(\"right-bar\"), uploadLink = document.getElementById(\"upload-link\");\n    // display the right panel\n    uploadLink.addEventListener(\"click\", function () {\n        rightBar.hidden = false;\n    });\n    // close the right panel\n    closeBtn.addEventListener(\"click\", function (evt) {\n        rightBar.hidden = true;\n    });\n    // draw graph network\n    if (jsonUrl && jsonUrl.value) {\n        // remove background image, replace with background color\n        body.style.backgroundImage = 'None';\n        // hide right panel by default when graph chart is generated\n        if (rightBar) {\n            rightBar.hidden = true;\n        }\n        graph_chart_1.generateGraghChart(jsonUrl);\n        display_difference_chart_1.display_chart();\n    }\n}());\n\n\n//# sourceURL=webpack:///./client/ts/index.ts?");
 
 /***/ }),
 

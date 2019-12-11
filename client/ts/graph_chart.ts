@@ -58,7 +58,4 @@ export function generateGraghChart(jsonUrl){
         }
     });
 
-
-
-
 }

@@ -1,5 +1,6 @@
 import * as d3 from "d3";
 import {generateGraghChart} from "./graph_chart";
+import {display_chart} from "./display_difference_chart";
 
 (function(){
 
@@ -27,6 +28,7 @@ import {generateGraghChart} from "./graph_chart";
          rightBar.hidden = true;
       }
       generateGraghChart(jsonUrl);
+      display_chart();
    }
 
 }());

@@ -88,3 +88,6 @@ span.navbar-brand.upload-link:hover{
   letter-spacing: 1.62px;
   text-align: center;
 }
+svg g line:hover{
+   cursor: pointer;
+}
