@@ -19,8 +19,12 @@ welcome to create a pull request.
 1. Clone the repo to your local directory
 2. Enter the directory, create a virtual environment and activate it
 
-    ```python3 -m venv venv```
-    ```source venv/bin/activate```
+    ```
+    python3 -m venv venv
+    source venv/bin/activate
+    
+    ```
+    
 3. Install required packages
 
     ```pip install -r requirements.txt```
