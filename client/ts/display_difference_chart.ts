@@ -46,8 +46,7 @@ export function displayChart(){
     // add event listener to the document, ensure the listener can be created before the target element, lke line, is created
     document.addEventListener("click", function(e){
         let clickedElement: any = e.target;
-        let nodes = d3.selectAll("circle"),
-            edges = d3.selectAll("line");
+        let nodes = d3.selectAll("circle");
 
         if (clickedElement.nodeName=='line'){
             let sourceName = clickedElement.__data__.source.source,
@@ -89,6 +88,7 @@ export function displayChart(){
                     uploadLink.click(); // or uploadLink.hidden = true;
                     rightContentBar.hidden = true;
                     rightImageBar.hidden = false;
+                    // todo: in the future, using another way to handle missing pictures?
                     imageTitleElement.innerText = "No Image For this Edge";
                     imageElement.removeAttribute("src");
                     imageElement.removeAttribute("height");
