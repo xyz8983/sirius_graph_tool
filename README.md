@@ -22,14 +22,17 @@ welcome to create a pull request.
     ```python3 -m venv venv```
     ```source venv/bin/activate```
 3. Install required packages
-```pip install -r requirements.txt```
+
+    ```pip install -r requirements.txt```
 4. Start the server
-```python manage.py runserver```
+
+    ```python manage.py runserver```
+    
 Congratulations, the Exploratory Analysis Tool is live in your local environment!
 You can access it by the url returned from the above command, usually it is [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 
-### Development
+## Development
 If you would like to contribute to the development, WELCOME!
 Please make sure you have `npm` installed.
 We use typescript in this project. Please execute `webpack` to compiles typescript into javascript
