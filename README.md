@@ -34,8 +34,10 @@ You can access it by the url returned from the above command, usually it is [htt
 
 ## Development
 If you would like to contribute to the development, WELCOME!
+
 Please make sure you have `npm` installed.
-We use typescript in this project. Please execute `webpack` to compiles typescript into javascript
+We use typescript in this project. Please execute `webpack` to compiles typescript into javascript.
+
 Thorough docstring is required in development
 
 
