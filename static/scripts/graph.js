@@ -86,6 +86,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./client/ts/graph_chart.ts":
+/*!**********************************!*\
+  !*** ./client/ts/graph_chart.ts ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nvar __importStar = (this && this.__importStar) || function (mod) {\n    if (mod && mod.__esModule) return mod;\n    var result = {};\n    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];\n    result[\"default\"] = mod;\n    return result;\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar d3 = __importStar(__webpack_require__(/*! d3 */ \"./node_modules/d3/build/d3.js\"));\nvar styles_1 = __webpack_require__(/*! ./styles */ \"./client/ts/styles.ts\");\nfunction generateGraghChart(jsonUrl) {\n    // let svg = d3.select('svg'),\n    //     width = document.getElementById(\"drawing-section\").clientWidth,\n    //     height = document.getElementById(\"drawing-section\").clientHeight,\n    //     nodeRadius = 10;\n    // svg.attr(\"width\", width).attr(\"height\", height);\n    var svg = d3.select('svg'), height = +svg.attr(\"height\"), width = +svg.attr(\"width\"), nodeRadius = 8;\n    var simulation = d3.forceSimulation()\n        .force('charge', d3.forceManyBody())\n        .force('center', d3.forceCenter(width / 2, height / 2))\n        // .force('collide', d3.forceCollide().radius(nodeRadius*1.2))\n        .force('collide', d3.forceCollide())\n        .force('link', d3.forceLink().distance(80)); // distance sets the length of each link\n    d3.json(jsonUrl.value, function (error, data) {\n        var links = svg.append(\"g\")\n            .selectAll(\"line\")\n            .data(data.links)\n            .enter()\n            .append(\"line\")\n            .attr(\"stroke\", styles_1.Color.White)\n            .attr(\"stroke-width\", 1);\n        var nodes = svg.append(\"g\")\n            .selectAll(\"circle\")\n            .data(data.nodes)\n            .enter()\n            .append(\"circle\")\n            .attr(\"r\", nodeRadius)\n            // .style(\"opacity\", \"0.5\");\n            .style('fill', styles_1.Color.White);\n        simulation.nodes(data.nodes)\n            .on(\"tick\", ticked);\n        simulation.force(\"link\").links(data.links);\n        function ticked() {\n            links\n                .attr(\"x1\", function (d) { return d.source.x; })\n                .attr(\"y1\", function (d) { return d.source.y; })\n                .attr(\"x2\", function (d) { return d.target.x; })\n                .attr(\"y2\", function (d) { return d.target.y; });\n            nodes\n                .attr(\"cx\", function (d) { return d.x; })\n                .attr(\"cy\", function (d) { return d.y; })\n                .attr(\"stroke\", styles_1.Color.White)\n                .attr(\"stroke-width\", 1);\n        }\n    });\n}\nexports.generateGraghChart = generateGraghChart;\n\n\n//# sourceURL=webpack:///./client/ts/graph_chart.ts?");
+
+/***/ }),
+
 /***/ "./client/ts/index.ts":
 /*!****************************!*\
   !*** ./client/ts/index.ts ***!
@@ -94,7 +106,19 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\nvar __importStar = (this && this.__importStar) || function (mod) {\n    if (mod && mod.__esModule) return mod;\n    var result = {};\n    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];\n    result[\"default\"] = mod;\n    return result;\n};\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar d3 = __importStar(__webpack_require__(/*! d3 */ \"./node_modules/d3/build/d3.js\"));\n(function () {\n    console.log('hey is it still alive');\n    // d3.select(\"p\").data(['hey','you']).enter().append('li').text(function(d){return \"hello\"+d;});\n    var jsonUrl = document.getElementById('json-url');\n    if (jsonUrl && jsonUrl.value) {\n        console.log(jsonUrl);\n        console.log('value', jsonUrl.value);\n        d3.json(jsonUrl.value, function (error, data) {\n            console.log(data);\n        });\n    }\n}());\n\n\n//# sourceURL=webpack:///./client/ts/index.ts?");
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar graph_chart_1 = __webpack_require__(/*! ./graph_chart */ \"./client/ts/graph_chart.ts\");\n(function () {\n    var jsonUrl = document.getElementById('json-url'), body = document.getElementsByTagName(\"body\")[0], closeBtn = document.getElementsByClassName(\"close-btn\")[0], rightBar = document.getElementById(\"right-bar\"), uploadLink = document.getElementById(\"upload-link\");\n    // display the right panel\n    uploadLink.addEventListener(\"click\", function () {\n        rightBar.hidden = false;\n    });\n    // close the right panel\n    closeBtn.addEventListener(\"click\", function (evt) {\n        rightBar.hidden = true;\n    });\n    // draw graph network\n    if (jsonUrl && jsonUrl.value) {\n        // remove background image, replace with background color\n        body.style.backgroundImage = 'None';\n        // hide right panel by default when graph chart is generated\n        if (rightBar) {\n            rightBar.hidden = true;\n        }\n        graph_chart_1.generateGraghChart(jsonUrl);\n    }\n}());\n\n\n//# sourceURL=webpack:///./client/ts/index.ts?");
+
+/***/ }),
+
+/***/ "./client/ts/styles.ts":
+/*!*****************************!*\
+  !*** ./client/ts/styles.ts ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\nObject.defineProperty(exports, \"__esModule\", { value: true });\nvar Color;\n(function (Color) {\n    Color[\"White\"] = \"#FFFFFF\";\n})(Color = exports.Color || (exports.Color = {}));\n\n\n//# sourceURL=webpack:///./client/ts/styles.ts?");
 
 /***/ }),
 
