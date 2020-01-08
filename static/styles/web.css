@@ -3,11 +3,12 @@
     background-image: url("../../static/images/home-background.svg");
     background-color: #0F1847;
 }
+
 .navbar.navbar-expand-lg.eat-bar{
     background-color: #102136;
     border-bottom: 2px solid #3f62b8;
     height: 70px;
-
+    font-family: Rubik;
 }
 span.navbar-brand.eat-nav-title{
     color: white;
@@ -15,13 +16,12 @@ span.navbar-brand.eat-nav-title{
     letter-spacing: 1.94px;
 }
 span.navbar-brand.eat-nav-title .small{
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: 1.36px;
 }
 span.navbar-brand.upload-link{
     color: white;
     font-size: 16px;
-    /*font-family: Raleway;*/
     letter-spacing: 1.62px;
     position: absolute;
     right: 30px;
@@ -46,13 +46,13 @@ span.navbar-brand.upload-link:hover{
 #right-bar{
     overflow: visible;
     background-color: #202644;
+    font-family: Rubik;
     /*z-index: 1;*/
     width: 505px;
     height: 951px;
     position: absolute;
     top: 70px;
     right: 0;
-
 }
 .close-btn {
   top: 40px;
