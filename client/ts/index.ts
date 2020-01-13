@@ -1,5 +1,6 @@
 import * as d3 from "d3";
 import {generateGraghChart} from "./graph_chart";
+import {displayChart} from "./display_difference_chart";
 
 (function(){
 
@@ -11,7 +12,12 @@ import {generateGraghChart} from "./graph_chart";
 
    // display the right panel
    uploadLink.addEventListener("click", function(){
+      let rightContentBar = <HTMLElement>document.querySelector(".right-bar-content"),
+          rightImageBar = <HTMLElement>document.querySelector(".right-bar-image");
       rightBar.hidden = false;
+      rightContentBar.hidden = false;
+      rightImageBar.hidden = true;
+
    });
    // close the right panel
    closeBtn.addEventListener("click", function(evt){
@@ -27,6 +33,7 @@ import {generateGraghChart} from "./graph_chart";
          rightBar.hidden = true;
       }
       generateGraghChart(jsonUrl);
+      displayChart();
    }
 
 }());

@@ -1,6 +1,10 @@
 import * as d3 from "d3";
 import {Color} from "./styles";
 
+/**
+ * generate a network graph representing the connections between the features
+ * @param jsonUrl: string, the url to the data file in json format
+ */
 export function generateGraghChart(jsonUrl){
 
     // let svg = d3.select('svg'),
@@ -57,8 +61,5 @@ export function generateGraghChart(jsonUrl){
 
         }
     });
-
-
-
 
 }
