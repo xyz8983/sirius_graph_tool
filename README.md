@@ -35,6 +35,20 @@ welcome to create a pull request.
 Congratulations, the Exploratory Analysis Tool is live in your local environment!
 You can access it by the url returned from the above command, usually it is [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
+## User Guide of the Tool
+1. upload the json file with structures like:
+```json
+{
+"nodes": [{"index":1, "source": "node_1"}, {"index":2, "source": "node_2"}]
+},
+"links":[{"source": 1, "target": 2, "correlations": 0.58, "link": "node_1_to_2", "support": 300}]
+
+```
+(the json file can be generated from xxx (will be updated))
+2. viola! you will see a network graph with options to explore with.
+
+<b>Note<b>:
+1. please use "_" as delimiters between features/variables name
 
 ## Development
 If you would like to contribute to the development, WELCOME!
