@@ -7,18 +7,20 @@ import {Color} from "./styles";
  */
 export function generateGraghChart(jsonUrl){
 
-    // let svg = d3.select('svg'),
-    //     width = document.getElementById("drawing-section").clientWidth,
-    //     height = document.getElementById("drawing-section").clientHeight,
-    //     nodeRadius = 10;
-    // svg.attr("width", width).attr("height", height);
     let svg = d3.select('svg'),
-        height = +svg.attr("height"),
-        width = +svg.attr("width"),
-        nodeRadius = 8;
+        // width = document.getElementById("drawing-section").clientWidth,
+        width = window.innerWidth-50,
+        // height = document.getElementById("drawing-section").clientHeight,
+        height = window.innerHeight-100,
+        nodeRadius = 5;
+    svg.attr("width", width).attr("height", height);
+    // let svg = d3.select('svg'),
+    //     height = +svg.attr("height"),
+    //     width = +svg.attr("width"),
+    //     nodeRadius = 8;
 
     let simulation = d3.forceSimulation()
-        .force('charge', d3.forceManyBody())
+        .force('charge', d3.forceManyBody().distanceMax(height/2))
         .force('center', d3.forceCenter(width/2, height/2))
         // .force('collide', d3.forceCollide().radius(nodeRadius*1.2))
         .force('collide', d3.forceCollide())
@@ -31,7 +33,7 @@ export function generateGraghChart(jsonUrl){
             .enter()
             .append("line")
             .attr("stroke", Color.White)
-            .attr("stroke-width", 1);
+            .attr("stroke-width", 2);
 
         let nodes = svg.append("g")
             .selectAll("circle")
